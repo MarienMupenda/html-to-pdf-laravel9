@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Barryvdh\DomPDF\PDF;
-use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class HTMLPDFController extends Controller
 {
     public function htmlPdf()
     {
         // selecting PDF view
-        $pdf = PDF::loadView('htmlView');
+        $pdf = Pdf::loadView('htmlView');
 
         // download pdf file
         return $pdf->download('pdfview.pdf');
